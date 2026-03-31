@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-gradient-to-br from-purple-50 to-pink-50 font-sans dark:from-gray-900 dark:to-purple-900">
-      <main className="flex flex-1 w-full max-w-4xl flex-col items-center justify-between py-16 px-8 bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-2xl shadow-xl sm:items-start">
+      <main className="flex flex-1 w-full max-w-4xl flex-col items-center justify-between py-16 px-8 bg-white/80 dark:bg-transparent backdrop-blur-sm rounded-2xl sm:items-start">
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center animate-float">
