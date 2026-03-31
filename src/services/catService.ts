@@ -71,6 +71,7 @@ export interface Favourite {
 const API_BASE = "https://api.thecatapi.com/v1";
 const API_KEY =
   process.env.NEXT_PUBLIC_CAT_API_KEY ||
+  // this is fake api key, to obtain one, visit: https://thecatapi.com
   "live_hR0C8yP3xv6vJ3O0sL5xW7fK2qM9nT1pU4rY6iE8jG0kL2mN4oP6qR8sT0uV2w";
 
 // Create gateway service for The Cat API
