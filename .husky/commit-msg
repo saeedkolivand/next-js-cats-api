@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+set -e
+
+# v9/v10-safe: no husky.sh
+npx commitlint --edit $1
+

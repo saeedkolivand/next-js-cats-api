@@ -31,11 +31,18 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
+.env.local
+.env.*.local
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.windsurf
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 next-env.d.ts

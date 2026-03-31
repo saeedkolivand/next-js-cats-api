@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -e
+
+echo "running tests..."
+npm run test
+
+echo "build..."
+npm run build

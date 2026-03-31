@@ -1,0 +1,43 @@
+#!/usr/bin/env sh
+set -e
+
+has_unstaged_changes() {
+  if [ -n "$(git diff --name-only)" ]; then
+    echo "true"
+  else
+    echo "false"
+  fi
+}
+
+# exit if nothing staged
+if ! git diff --cached --name-only --diff-filter=ACMR | grep -q .; then
+  echo "pre-commit: no staged files"
+  exit 0
+fi
+
+initial_changes=$(has_unstaged_changes)
+
+echo "typecheck..."
+npm run typecheck
+
+echo "lint fix..."
+npm run lint:fix
+
+echo "lint-staged..."
+npx --no lint-staged --allow-empty
+
+final_changes=$(has_unstaged_changes)
+
+if [ "$initial_changes" = "false" ] && [ "$final_changes" = "true" ]; then
+  printf '\e[1;31m%s\e[m\n' "Commit aborted: formatter changed files"
+  printf '\e[1;31m%s\e[m\n' "Stage changes and commit again"
+  exit 1
+fi
+
+if [ "$final_changes" = "true" ]; then
+  changed_files=$(git diff --name-only)
+  printf '\e[1;31m%s\e[m\n' "Commit aborted: unstaged changes detected"
+  echo "$changed_files"
+  printf '\e[1;31m%s\e[m\n' "Stage changes and commit again"
+  exit 1
+fi
