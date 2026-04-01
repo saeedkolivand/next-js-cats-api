@@ -26,7 +26,6 @@ A modern, feature-rich web application built with Next.js 16, React 19, and Type
 
 - **Next.js API Routes** - Server-side API endpoints
 - **Axios 1.14.0** - HTTP client for API requests
-- **NextAuth 4.24.13** - Authentication solution
 
 ### Development Tools
 
